@@ -19,22 +19,29 @@ mongoose
 /* ---------- API : Create Short URL ---------- */
 app.post("/shorten", async (req, res) => {
   try {
-    const { originalUrl } = req.body;
+    console.log("Request received:", req.body);
 
+    const { originalUrl } = req.body;
     const shortCode = shortid.generate();
+
+    console.log("Generated short code:", shortCode);
+
     const newUrl = new Url({ originalUrl, shortCode });
     await newUrl.save();
 
-    // 🔑 Dynamic base URL (works on Render)
+    console.log("Saved to DB");
+
     const baseUrl = req.protocol + "://" + req.get("host");
 
     res.json({
       shortUrl: `${baseUrl}/${shortCode}`,
     });
   } catch (err) {
+    console.log("ERROR in /shorten:", err);
     res.status(500).json({ error: "Server error" });
   }
 });
+
 
 /* ---------- Redirect Short URL ---------- */
 app.get("/:code", async (req, res) => {
