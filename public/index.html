@@ -1,7 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>URL Shortener</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Free URL Shortener | Smart & Fast Link Shortener</title>
+
+  <meta name="description"
+    content="Free URL Shortener to convert long links into short, shareable URLs quickly and securely." />
+
+  <meta name="keywords"
+    content="URL shortener, link shortener, short URL, free url shortener" />
+
+  <meta name="author" content="Sinchana Subramanya" />
+
+  <!-- Google Search Console Verification -->
+  <meta name="google-site-verification"
+    content="kh3ZOGuTBaPAhpAvMwShXkwb8XmzIDzVBzglkjku3os" />
+
   <style>
     body {
       font-family: Arial;
@@ -10,6 +26,7 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
+      margin: 0;
     }
     .box {
       background: white;
@@ -37,11 +54,12 @@
     }
   </style>
 </head>
+
 <body>
 
 <div class="box">
   <h2>URL Shortener</h2>
-  <input id="url" placeholder="Enter long URL" />
+  <input id="url" type="url" placeholder="Enter long URL" />
   <button onclick="shorten()">Shorten</button>
   <p id="result"></p>
 </div>
